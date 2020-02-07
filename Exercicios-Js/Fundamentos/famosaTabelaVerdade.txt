@@ -1,7 +1,9 @@
+// E
 v e v -> v
 v e f -> f
 f e ? -> f
 
+// Ou
 v ou ? -> v
 f ou v -> v
 f ou f -> f
