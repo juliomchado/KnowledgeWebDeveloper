@@ -24,3 +24,6 @@ console.log("======================================")
 comparaComThisArrow = comparaComThisArrow.bind(obj)
 comparaComThisArrow(obj)
 comparaComThisArrow(module.exports)
+
+
+
