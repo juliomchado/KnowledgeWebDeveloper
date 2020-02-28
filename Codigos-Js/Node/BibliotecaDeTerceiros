@@ -1,0 +1,14 @@
+// Codigos em terminal
+
+Instalar biblioteca lodash
+-> npm i lodash
+
+Instalar biblioteca de modo global nesse caso o nodemon (Da refesh automaticamente no seu código e executa ele dnv)
+-> npm i -g nodemon
+
+Como da start no nodemon:
+entre na pasta usando cd e dê 'nodemon nomedapasta.js' no console
+
+
+
+
