@@ -1,0 +1,5 @@
+// Para criar package.json = abrir o terminal e escrever 'npm init -y' ou 'npm init' e ir preenchendo as perguntas
+
+
+// Para salvar as dependencias em package.json você precisa instalar as dependencias e colocar --save antes ex: npm i --save axios
+
