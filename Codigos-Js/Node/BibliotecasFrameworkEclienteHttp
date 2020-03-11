@@ -1,0 +1,19 @@
+
+// Framework é diferente de biblioteca, um Framework é algo que estrutura sua aplicação, é tipo um arcabouço, para você poder construir sua aplicação em cima da arquitetura, configurações etc
+
+// Biblioteca é um conjunto de funcionalidades que te ajudam no dia a dia (ex: lodash)
+
+// Um cliente http como axios te da funcionalidades para fazer chamadas remotas e obter respostas
+
+// Um Framework organiza sua aplicação de uma forma muito mais abragente ex: Express
+
+Exemplos de Frameworks back-end: 
+Express: http://expressjs.com/  
+Sails: https://sailsjs.com/    
+Koa: https://koajs.com/       
+
+
+
+
+
+
