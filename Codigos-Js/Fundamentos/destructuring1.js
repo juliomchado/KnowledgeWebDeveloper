@@ -4,6 +4,7 @@ const pessoa = {
     nome: 'Ana',
     idade: 5,
     endereco: {
+
         logradouro: 'Rua ABC',
         numero: 1000
     }
@@ -16,7 +17,7 @@ console.log(nome, idade)
 const { nome: n, idade: i } = pessoa //"Tire o atributo nome e idade e crie variaveis com letra n e i com essas informações"
 console.log(n, i)
 
-const { sobrenome, bemHumarada  = true} = pessoa //"Tire sobrenome e bemHumarada do objeto pessoa, se bemHumorada não tiver nada retorne true"
+const { sobrenome, bemHumarada = true} = pessoa //"Tire sobrenome e bemHumarada do objeto pessoa, se bemHumorada não tiver nada retorne true"
 console.log(sobrenome, bemHumarada)
 
 const { endereco: {logradouro, numero, cep }} = pessoa //Retirar as informações do objeto endereco
