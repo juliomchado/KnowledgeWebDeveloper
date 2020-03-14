@@ -9,6 +9,7 @@ Instalar biblioteca de modo global nesse caso o nodemon (Da refesh automaticamen
 Como da start no nodemon:
 entre na pasta usando cd e dê 'nodemon nomedapasta.js' no console
 
-
+Instalar biblioteca para temporizadores
+-> npm i node-schedule
 
 
