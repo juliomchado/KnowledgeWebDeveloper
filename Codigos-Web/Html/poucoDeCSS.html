@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Um pouco de CSS</title>
+        <!--- Referênciar o arquivo .css correspondente para usar os códigos css-->
+        <link rel="stylesheet" href="poucodeCSS.css">
+        <!---Também posso estilizar pelo arquivo html-->
+        <style> 
+            h1 {
+                font-size: 20px;
+            }
+
+            .fundoVermelho {
+                background-color: #f00;
+            }
+
+            .negrito {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>CSS</h1>
+        <span id="textoPrincipal">Texto 1</span>
+        <br>
+        <br>
+        <span class="fundoVermelho negrito">Texto 2</span>
+        <br>
+        <br>
+        <!--Também posso estilizar com css pela tag colocando style="", porém não é recomendado, a menos que faça com javascript-->
+        <span class="fundoVermelho" style="display: none;">Texto 3</span>
+    </body>
+</html>
