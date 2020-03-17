@@ -1,0 +1,20 @@
+// Códigos em terminal
+
+Iniciar servidor http freito pra node:
+--> npm i -g http-server   // -g = será aberto de forma global
+
+Executar esse servidor:
+--> http-server .         // O ponto serve para dizer que vai abrir nesse arquivo, ou seja, entre no arquivo que você quer iniciar primeiro e depois inicie o servidor
+Obs: Dessa forma irá iniciar na porta padrão, caso queira abrir em outra porta, deve iniciar o servidor assim:
+--> http-server -p 9090  // Assim irá iniciar na porta 9090
+Outra observação: Esse servidor por padrão tem cache, e para desabilitar deve colocar dessa forma:
+--> http-server -c-1 .
+
+
+
+
+
+
+
+Coisas além: 
+Baixe o plugin Preview e depois pode clickar cntrl + shift + v e tenha o preview da página que você está fazendo
