@@ -1,0 +1,75 @@
+<!-- Em uma tabela existe 3 grandes regiões, o cabeçalho, corpo e rodapé, parecido como uma página -->
+<!-- Para criar uma tabela rápida sem colocar um estilo posso colocar <table border="1"> -->
+<!-- caption = colocar oque representa essa tabela mas não é obrigatório-->
+<!-- tbody = corpo da tabela -->
+<!-- thead = cabeçalho da tabela -->
+<!-- tfoot = rodapé da tabela -->
+<!-- tr = uma linha   th = cabeçalho da tabela, ou as informações presentes -->
+<!-- td = table data, ou seja, onde irá os dados -->
+
+<table>
+    <caption>Produtos</caption>
+    <thead>
+        <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>iPad</td>
+            <td>3289,00</td>
+            <td>5</td>
+            <td>16445,00</td>
+        </tr>
+        <tr>
+            <td>Samsung S9</td>
+            <td>2649,00</td>
+            <td>8</td>
+            <td>21192,00</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <!-- colspan = Ocupar mais de uma coluna e número de colunas que quero ocupar -->
+            <!-- rowspan = Ocupar mais de uma linha e número de linhas que quero ocupar -->
+            <td colspan="3" rowspan="2">Total</td>
+            <td>37637,00</td>
+        </tr>
+    </tfoot>
+
+</table>
+
+<style>
+    table {
+        /* border collapse: collapse; = não ter borda */
+        border-collapse: collapse;
+    }
+    /* Algo como: th e td aplique isso:  */
+    th, td {
+        /* padding: 10px = colocar espaço entre os elementos de 10pixels */
+        padding: 10px;
+    }
+    /* Algo como: tr que esta dentro de thead, aplique isso */
+    thead tr { 
+        /* borda na parte de baixo do cabeçalho da minha tabela no tr que representa o thead, borda sólida de 3px e de cor cinza */
+        border-bottom: solid 3px #444;
+    }
+    /* Algo como: tr dentro do tbody quando o ponteiro do mouse passar por cima(hover) aplique isso */
+    tbody tr:hover {
+        /* Quando o mouse passar aplique a cor 'dedede' */
+        background-color: #dedede;
+    }
+    /* Algo como: no tfoot coloque isso*/
+    tfoot{
+        /* fundo de cor '444' */
+        background-color: #444;
+        /* letra com cor 'fff' */
+        color: #fff;
+        /* fonte em negrito */
+        font-weight: bold;
+    }
+
+</style>

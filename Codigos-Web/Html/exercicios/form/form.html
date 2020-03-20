@@ -1,0 +1,68 @@
+<h1>Formulário</h1>
+
+<!-- Formulário que tem ação em tal host com metodo Post, porém posso colocar a action e method direto no botão -->
+<!-- Se o method for get ele irá colocar todos os resultados na url -->
+<form method="POST">
+    <!-- Input escondido, carrega dados escondido e não aparece, muito usado para guardar o id do usuário -->
+    <!-- tem o value que posso atribuir no html ou até msm via js -->
+    <input type="hidden" name="id" value="3">
+    <!-- Input de texto, como nome por ex: -->
+    <input type="text" name="nome">
+    <!-- Tipos de input:  -->
+    <!-- Input de senha = input:password  -->
+    <input type="password" name="senha">
+    <!-- input de biográfia ou texto, etc = <textarea> com colunas e linhas que você quiser-->
+    <textarea name="bio" cols="30" rows="10"></textarea>
+    <div>
+        <!-- Botão para selecionar (redondo) -->
+        <!-- Nesse caso o valor que vai ser enviado pro backend é o valor de value -->
+        <input type="radio" name="tipo" value="admin"> Admin
+        <input type="radio" name="tipo" value="regular"> Regular
+        <input type="radio" name="tipo" value="professor"> Professor
+    </div>
+    <div>
+        <!-- Botão para selecionar de checkagem (quadrado) -->
+        <input type="checkbox" name="ativo"> Ativo
+        <!-- Se for selecionado será passado como 'on' para o backend -->
+    </div>
+
+    <!-- Selecionar e opções -->
+    <select name="estado">
+        <option value="">Selecione</option>
+        <option value="ac">Acre</option>
+        <option value="ba">Bahia</option>
+        <option value="ce">Ceará</option>
+    </select>
+
+    <!-- Selecionar múltiplas opções -->
+    <!-- size="" quantos serão exibidos -->
+    <select name="interesses" multiple size="7">
+        <option value="js">JavaScript</option>
+        <option value="java">Java</option>
+        <option value="php">Php</option>
+        <option value="python">Python</option>
+        <option value="go">Go</option>
+        <option value="c">C</option>
+    </select>
+
+    <button formaction="http://localhost:3003/usuarios">Incluir</button>
+    <button formaction="http://localhost:3003/usuarios/3">Alterar</button>
+</form>
+
+<style>
+    input,
+    textarea,
+    select {
+        /* display: block = coloca elementos um abaixo do outro */
+        display: block;
+        /* margin-bottom: 10px = coloca margin embaixo de 10px */
+        margin-bottom: 10px;
+    }
+
+    /* Input do tipo rádio insira isso:  */
+    input[type=radio],
+    input[type=checkbox] {
+        /* display: inline; = coloca do lado */
+        display: inline;
+    }
+</style>

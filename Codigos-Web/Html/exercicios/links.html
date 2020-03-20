@@ -3,7 +3,7 @@
 
 <!-- URL Abosoluta -->
 <!-- Em URL Absoluta não posso colocar sem o http:// ,pois ele irá entender que é uma url relativa e irá tentar abrir dentro do sistema, nesse caso localhost-->
-<a href="https://www.google.com.br">Google 1</a><br>
+<a id="inicio" href="https://www.google.com.br">Google 1</a><br>
 <!-- Nesse caso ele abre em outra aba-->
 <a href="https://www.google.com.br" target="_blank">Google 2</a><br><br>
 
@@ -12,8 +12,25 @@
 <!-- Caso eu esteja no caminho relativo ex: http://localhost:8080/exercicios/links.html Ele irá tentar acessar index.html dentro da pasta que você está no site, porém nesse caso não existe e ficar /exercicios/index.html e irar dar error 404 -->
 <a href="index.html">Voltar 1</a><br>
 <a href="/index.html">Voltar 2</a><br>
-<a href="../index.html">Voltar 3</a>
+<a href="../index.html">Voltar 3</a><br>
+
+<!-- Como usar links para apontar para email, ou seja, um link que abre automaticamente um provedor de e-mail para a pessoa que clickou-->
+<a href="mailto:email@empresa.com.br">Entre em contato</a><br><br>
 
 
+<!-- div#noticia abre <div id="noticia"></div>, pode ser usado assim para abrir tags com parametros ja feitos -->
+<!-- Outro exemplo para criar em class: span.teste abre um span com classe teste  -->
+<!-- <span class="teste"></span> -->
 
+<!-- Navegação via âncora -->
+<!-- Como fazer navegação da pagina de lugar ex: navegar do topo para baixo e vice-versa -->
+<!-- Nesse caso é de inicio para notícia -->
+<a href="#noticia">Ir para Notícia</a>
+
+<!-- Nesse caso é de notícia para início -->
+<div id="noticia" style="position: absolute;top:2000px">
+    <h1>Notícia Buemba!</h1>
+    <p>Não era nada.... :)</p>
+    <a href="#inicio">Voltar para o início</a>
+</div>
 
