@@ -1,0 +1,77 @@
+<!-- Se eu não colocar controls você não tem acesso as opções de controle e video, mas obs: terá como o usuário baixar o vídeo -->
+<!-- Para não deixar fazer o download do vídeo você tem que colocar o atributo controlsList="nodownload" -->
+<video id="meuVideo" width="800" height="450" controls autoplay controlsList="nodownload">
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4">
+    Seu browser não suporta a tag de vídeo.
+</video>
+
+<div wm-progresso="meuVideo" class="progresso">
+    <div></div>
+</div>
+<div class="botoes">
+    <button wm-play="meuVideo">Play</button>
+    <button wm-pause="meuVideo">Pause</button>
+</div>
+
+<div class="botoes">
+    <button wm-voltar="meuVideo"> - 10s</button>
+    <button wm-pular="meuVideo"> + 10s</button>
+</div>
+
+
+<style>
+    .progresso {
+        height: 20px;
+        width: 500px;
+        border: solid 1px #444;
+        margin: 20px;
+    }
+
+    /* Uma div dentro da classe progresso */
+    .progresso>div {
+        background-color: red;
+        color: #fff;
+        height: 100%;
+        text-align: right;
+        font-size: 14px;
+        width: 0%;
+    }
+
+    .botoes {
+        margin: 10px
+    }
+
+    
+</style>
+
+<script>
+    function configurarVideo(id) {
+
+        const video = document.getElementById(id)
+        const ProgressoVideo = document.querySelector(`[wm-progresso=${id}] > div`)
+        const Play = document.querySelector(`[wm-play=${id}]`)
+        const Pause = document.querySelector(`[wm-pause=${id}`)
+        const pular = document.querySelector(`[wm-pular=${id}`)
+        const voltar = document.querySelector(`[wm-voltar=${id}`)
+
+        video.oncontextmenu = () => false
+
+        Play.onclick = () => video.play()
+        Pause.onclick = () => video.pause()
+
+        pular.onclick = () => video.currentTime += 10
+        voltar.onclick = () => video.currentTime -= 10
+
+        setInterval(() => {
+            const percentual = (video.currentTime / video.duration) * 100
+            ProgressoVideo.style.width = `${percentual}%`
+            ProgressoVideo.innerHTML = `${percentual.toFixed(1)}%`
+        }, 500)
+    }
+
+    configurarVideo('meuVideo')
+
+
+
+
+</script>

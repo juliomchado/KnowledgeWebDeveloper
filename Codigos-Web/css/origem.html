@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Origem CSS: Externo, Interno e Inline</title>
+    <style>
+        /* A preferência de estilo é do último carregado, nesse caso o ultimo processado, a menos que seja inline, pois inline tem preferência */
+        body {
+            background-color: aquamarine;
+        }
+    </style>
+    <link rel="stylesheet" href="css/externo.css">
+</head>
+<!-- Posso colocar mais de uma propriedade inline, mas não é recomendado, pois fica desorganizado -->
+<body style="background-color: coral;">
+    <h1>E agora?</h1>
+</body>
+
+</html>

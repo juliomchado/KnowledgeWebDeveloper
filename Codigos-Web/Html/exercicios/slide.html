@@ -1,0 +1,125 @@
+<div wm-slider>
+    <!-- As imagens serão colocadas em uma tag de paragrafo, pois é para separar cada imagen em uma linha e usar esse fato que estão em um paragrafo para criar um slide -->
+    <p>
+        <!-- src = indereço ou fonte da imagem -->
+        <!-- alt = é exibida em alguns momentos como por exemplo quando ele não consegue exibir uma imagen e no lugar a imagem aparece isso ou para leitores de deficientes vizuais para saber oque se trata-->
+        <!-- width = largura, height = altura -->
+        <!-- title = quando você passa o mouse em cima da imagem e aparece o que ta la -->
+        <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="Muro da Cidade" width="513" height="342"
+            title="Muro da Cidade por Tarso Bessa">
+    </p>
+
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem2.gif" alt="Intro Cod3r" height="342">
+    </p>
+
+    <!-- Imagem png como tem um fundo transparente, eu posso estiliza-lo com brackgroud-color -->
+    <p class="circular">
+        <img src="http://files.cod3r.com.br/curso-web/imagem3.png" alt="Rio De Janeiro" height="342">
+    </p>
+
+    <p class="texto">
+        <!-- align = alinhamento, nesse caso é na esquerda -->
+        <img src="http://files.cod3r.com.br/curso-web/avatar.jpg" alt="Avatar" height="50" align="left">
+        Texto asdas adsdas dsad asdas das dsada dasd adasdas dsa
+        dasdasdasdas asdad adsadasd a das dasd as
+        asdasdasdsadasdasdas addas da sd asd sadasd ada dsa dasdas das
+        dasdsada adsdsdas
+    </p>
+
+    <p class="cidade"></p>
+
+    <p>
+        <!-- Essa tag eu tenho a possibilidade de colocar várias fontes ou várias imagens e posso colocar critérios para que essas imagens possam ser exibidas ou não-->
+        <!-- media = "(min-width:600px), ou seja, ela será exibida somente se no minimo a imagem tenha 600px de largura e se não tiver ele irá ir para baixo, ou seja, img e assim sucessivamente" -->
+        <!-- Obs: Caso não exista a imagem ele não irá mudar para outra imagem, ele irá mostrar o alt -->
+        <picture>
+            <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png" media="(min-width:600px)">
+            <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="Logo">
+        </picture>
+    </p>
+</div>
+
+<style>
+    p {
+        position: absolute;
+        display: none;
+    }
+
+
+    .circular {
+        width: 513px;
+        background-color: #444;
+    }
+
+    .texto {
+        width: 400px;
+    }
+
+    /* Algo como: dentro da classe texto, a tag img aplique isso:  */
+    .texto img {
+        margin-right: 10px;
+    }
+
+    /* Colocar imagem pelo css:  */
+    .cidade {
+        width: 513px;
+        height: 342px;
+        background-image: url('http://files.cod3r.com.br/curso-web/imagem4.jpg');
+        background-position: center;
+        /* Não deixar ela repetir */
+        background-repeat: no-repeat;
+        /* Zoom na imagem */
+        background-size: 200%;
+    }
+</style>
+
+<script>
+    function mover(elem, incio, fim, passo, callback) {
+        const novoInicio = incio - passo
+        if (novoInicio >= fim) {
+            elem.style.left = novoInicio + 'px'
+            setTimeout(() => mover(elem, novoInicio, fim, passo, callback), 10);
+        } else {
+            callback()
+        }
+    }
+
+    // Pegando a primeira query p que está dentro de algum [vm-slider]
+    // const p = document.querySelector('[wm-slider] > p')
+    // p.style.display = 'block'
+    // mover(p, 1500, -520, 5, () => {
+    //     console.log('Terminou!!!')
+    // })
+
+    function slider() {
+        // document.querySelectorAll resulta um nodeList, e não é o mesmo que um array e por isso precisa transforma-lo com função Array.from()
+        const elementos = document.querySelectorAll('[wm-slider] > p')
+        const slides = Array.from(elementos)
+        exibirSlide(slides, slides[0])
+    }
+
+    function exibirSlide(slides, slide) {
+        slide.style.display = 'block'
+
+        // innerWidth = obter a largura da tela
+        // clientWidth = largura do cliente
+        const inicio = innerWidth
+        const fim = -slide.clientWidth
+
+        slide.style.left = `${inicio}px`
+
+        mover(slide, inicio, fim, 5, () => {
+            slide.style.display = 'none'
+            exibirSlide(slides, getProximo(slides, slide))
+        })
+    }
+
+    function getProximo(lista, atual) {
+        const i = lista.indexOf(atual) + 1
+        return i < lista.length ? lista[i] : lista[0]
+    }
+
+    slider()
+
+</script>

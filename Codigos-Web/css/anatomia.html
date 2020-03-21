@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Anatomia CSS</title>
+    <style>
+        .seletor {
+            color: #fff;
+            font-size: 30px;
+            text-align: center;
+            /* multiplos valores */
+            /* shorthand property */
+            border: solid 5px navy; 
+            /* Coloque a fonte helvetica, caso não der certo coloque sans-serif */
+            font-family: Helvetica, sans-serif;
+            /* funções */
+            width: calc(100% - 40px);
+            background-color: rgb(34, 153, 189);
+        }
+
+        /* Usando uma pseudo-classe */
+        /* :hover = Nesse caso, se o mouse passar por cima do componente ele muda a cor ou acontece outra coisa */
+        .seletor:hover{
+            background-color: orangered;
+        }
+        /* Usando um pseudo-elemento */
+        /* ::first-letter = primeira letra do elemento você consegue selecionar  */
+        .seletor::first-letter{
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+        /* Padrão de nomeclatura? */
+        /* dash-case ou camelCase? */
+        /* dash-case é mais usado em mercado, porém não tem problema de usar o camelCase se você tiver um padrão de nomeclatura no seu código e não ficar alternando*/
+    </style>
+</head>
+
+<body>
+    <div class="seletor">Conteúdo</div>
+</body>
+
+</html>
