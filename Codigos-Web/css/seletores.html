@@ -6,7 +6,102 @@
     <title>CSS Selectors</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        /* * {}= global, ou seja, vai aplicar para todos*/
+
+        /* .tag{} = classe, todos que tem a classe tag*/
+
+        /* #aprovados {} = id, todos que tem o id aprovados */
+
+        /* #aninhado>div {} = Dentro do id aninhado, quero pegar o elemnto div que esteja diretamente ligado ao aninhado */
+
+        /* #aninhado section{} = Nesse caso, ele irá pegar qualquer decendente de aninhado do tipo section*/
+
+        /* p + ul {}= seletor de irmãos que são adjacentes, ou seja, um logo em seguida do outro */
+
+        /*  p ~ ol {}= Vai selecionar um ol que dentro do elemento p que nesse caso é o pai */
+
+        /* [feira] {}= Vai pegar todos os elemntos que tem a propriedade feira */
+
+        /* [feira=casa] {} = Vai pegar somente os elementos que tem a propriedade feira="casa" */
+
+        /* [feira~=escritorio] {} = Vai pegar somente os elementos que tem a propriedade feira="escritorio" e que tenha algum escritorio associado */
+
+        /* [feira*=sa] {} = Dentro do texto que esta associado a feira tem sa?, nesse caso casa tem 'sa' e empresa também 'sa'*/
+
+        /* span:nth-child(1){} = Quero o primeiro filho de alguém que é do tipo span*/
+
+        /* section >:nth-child(odd) {} = Dentro de uma section me de todos os filhos inpares, obs: section nolabel*/
+
+        /* section >:nth-child(even) {} = Dentro de uma section me de todos os filhos pares, obs: ol sem nolabel.. pares viram ímpares.. pq label =1 */
+        
+        /* section > span:nth-of-type(2) {} = Pega o 2 span da section */
+
+        /*  */
+        
+        /*Seletor de Id aninhado*/
+        #aninhado>div {
+            color: #ff0;
+            background-color: rgb(163, 149, 243);
+        }
+ 
+        /*Seletor de descendente*/
+        /* #aninhado span {
+            background-color: tomato;
+        } */
+ 
+        /*Seletor de irmão adjacentes*/
+        p+ul {
+            color: silver;
+        }
+ 
+        /*Seletor de irmãos adjacentes e não adjacentes*/
+        p~ul {
+            color: yellowgreen;
+        }
+ 
+        p~ol {
+            color: black;
+        }
+ 
+        /*Seletor de Atributo*/
+        [feira] {
+            background-color: purple;
+        }
+ 
+        /*Seletor de Atributo Específico*/
+        [feira=casa] {
+            color: yellow;
+        }
+ 
+        /*Seletor de Atributos Específicos e Compostos*/
+        [feira~=escritorio] {
+            color: gold;
+        }
+ 
+        /*Seletor de Atributo por 'Termos'*/
+        [feira*=presa] {
+            color: orangered;
+        }
+ 
+        /* Dentro da Section primeiro elemento | section nolabel*/
+        /* section > :nth-child(1) {
+            color: darkblue;
+        } */
+ 
+        /* Dentro da Section elementos ímpares | section nolabel*/
+        section> :nth-child(odd) {
+            color: darkblue;
+        }
+ 
+        /*ol sem nolabel.. pares viram ímpares.. pq label =1*/
+        ol :nth-child(even) {
+            color: darkred;
+        }
+ 
+        /*2o span da section*/
+        section>span:nth-of-type(2) {
+            background-color: rgb(204, 21, 158);
+        }
     </style>
 </head>
 
@@ -29,7 +124,7 @@
             </ol>
             <div id='aninhado' class='tag'>
                 <div class="tag">
-                    <section class='tag'>
+                    <section class='tag nolabel'>
                         <span class='tag'>1</span>
                         <p class='tag'>2</p>
                         <span class='tag'>3</span>
