@@ -5,7 +5,55 @@
     <meta charset="UTF-8">
     <title>Unidades #01</title>
     <style>
-        /* ... */
+        /* Unidades absolutas */
+        /* px = pixel não é um pixel do monitor */
+        /* cm  */
+        /* mm */
+
+        /* ViewPort */
+        /* vh = 1/100 da altura da tela*/
+        /* vw = 1/100 da largura da tela */
+        /* vmin = Varia dependendo do tamanho da tela (largura ou altura) */
+        /* vmax = Varia dependendo do tamanho da tela (largura ou altura) */
+
+        /* Font */
+        /* rem = multiplica o valor da raiz */
+        /* em = multiplica o valor do pai */
+
+        /* Casos especial */
+        /*  %, pois dependendo ele pode considerar a propria tela(viewPort), ou o pai, ou considera o padding ou não considera, etc*/
+
+        .unidades-absolutas {
+            position: absolute;
+            font-size: 40px;
+            padding: 20px;
+            border: solid 5px #222;
+            margin: 30px;
+            /* Pouco usado */
+            width: 4cm;
+            /* Pouco usado*/
+            height: 20mm;
+            /* Desce 150px do topo */
+            top: 150px;
+            left: 200px;
+        }
+
+        .unidades-relativas{
+            position: absolute;
+            /* Se mudar o tamanho no browser ele muda no site tmb */
+            font-size: 4em;
+            padding: 5%;
+            border: solid 1vw #222;
+            margin: 0.8%;
+            width: 20vw;
+            height: 15vh;
+            bottom: 5%;
+            right: 5%;
+
+
+
+        }
+
     </style>
 </head>
 

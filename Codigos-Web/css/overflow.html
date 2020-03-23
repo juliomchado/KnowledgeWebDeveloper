@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Overflow</title>
@@ -9,9 +10,18 @@
             height: 100px;
             width: 260px;
             border: solid 3px;
+            /* Assim tudo que estrapolar o tamanho da div irá desaparecer */
+            overflow: hidden;
+            /* Coloca um scroll para aparecer tudo que está escondido */
+            overflow: scroll;
+            /* Colocar scroll so pro eixo x, ou seja, pra horizontal*/
+            overflow-x: scroll;
+            /* Colocar scroll no eixo y, ou seja, pra vertical*/
+            
         }
     </style>
 </head>
+
 <body>
     <div>
         TudoFuncionaMuitoBemEmCSS!!!
@@ -19,4 +29,5 @@
         Já pensou qual será o comportamento padrão?
     </div>
 </body>
+
 </html>

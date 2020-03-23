@@ -10,7 +10,27 @@
             
             https://coolors.co/
             http://paletton.com/
+
         */
+
+        body{
+            /* Formas de colocar as cores */
+            background-color: green;
+            background-color: #f67809;
+            background-color: #abc;
+            /* ff = zero transparencia, se vc colocar 00 fica transparente */
+            background-color: #edc91280; 
+            
+            background-color: rgb(55,110, 220);
+            /* a ultima virgula é a transparência, vai de 0 a 1 , mas posso ignorar e colocar apenas . invez de 0.*/
+            background-color: rgba(55, 110, 220, 1);
+
+            /* hue, saturation e lightness */
+            /* 299 = cor, 58% = saturação, quanto mais perto do 0 mais cinza, e 50% = quanto mais cor vc quer, quanto mais perto do 0 mais escuro  */
+            background-color: hsl(299,58%, 50%);
+            /* o quarto parâmetro é a transparência */
+            background-color: hsla(299, 58%, 50%, 0.5);
+        }
     </style>
 </head>
 

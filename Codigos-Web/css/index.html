@@ -9,41 +9,59 @@
         html {
             height: 100%;
         }
-        
+
         body {
             margin: 0;
             font-family: 'Oswald', sans-serif;
-            background-color: lightgray;
+            background-color: rgb(53, 53, 53);
             height: 100%;
         }
-        
+
         .conteudo {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; 
+            justify-content: center;
             min-height: 100%;
         }
-        
+
         .menu-principal {
             min-width: 400px;
             text-align: center;
         }
-        
+
         .menu-principal h1 {
-            background: #333;
+            border-top-left-radius: 10mm;
+            border-top-right-radius: 10mm;
+            background: rgb(31, 30, 30);
             color: #fff;
-            border-bottom: solid 5px #4faddb;
+            border-bottom: solid 5px rgb(212, 209, 31);
             padding: 15px 0px;
             margin: 0;
         }
-        
+
         .menu-principal nav {
             display: inline-block;
             background-color: #fff;
-            min-width: 198px;
+            min-width: 199px;
+
         }
-        
+
+        .menu-principal>nav:nth-of-type(1){
+            display: inline-block;
+            background-color: #fff;
+            min-width: 199px;
+            border-bottom-left-radius: 10mm;
+            overflow: hidden;
+        }
+        .menu-principal>nav:nth-of-type(2){
+            display: inline-block;
+            background-color: #fff;
+            min-width: 199px;
+            border-bottom-right-radius: 10mm;
+            overflow: hidden;
+        }
+
         .menu-principal a {
             display: block;
             padding: 10px 0px;
@@ -51,9 +69,14 @@
             color: #222;
             font-size: 1.2em;
         }
-        
+
         .menu-principal a:hover {
-            background-color: rgba(79, 173, 219, .4);
+            background-color: rgb(200, 203, 204);
+            padding: 8px 0px;
+            border-bottom: solid 2px gold;
+            border-top: solid 2px gold;
+            transition: 450ms;
+            color: rgb(107, 107, 107);
         }
     </style>
 </head>
@@ -63,38 +86,38 @@
         <div class="menu-principal">
             <h1>Exercícios de CSS</h1>
             <nav>
-                <a href="./intro.html">1 - CSS Intro</a>
-                <a href="./anatomia.html">2 - Anatomia CSS</a>
-                <a href="./origem.html">3 - Origem</a>
-                <a href="./classeTag.html">4 - Criando Classe <strong>.tag</strong></a>
-                <a href="./seletores.html">5 - Seletores</a>
-                <a href="./especificidade1.html">6 - Especificidade CSS #01</a>
-                <a href="./especificidade2.html">7 - Especificidade CSS #02</a>
-                <a href="./heranca.html">8 - Herança</a>
-                <a href="./box.html">9 - Box Model</a>
-                <a href="./margin.html">10 - Margin Collapse</a>
-                <a href="./display.html">11 - Display</a>
-                <a href="./alturaLargura.html">12 - Altura & Largura</a>
-                <a href="./tamanhoBox.html">13 - Box Sizing</a>
-                <a href="./overflow.html">14 - Overflow</a>
-                <a href="./float.html">15 - Float</a>
+                <a ::before href="./intro.html">CSS Intro </a>
+                <a href="./anatomia.html">Anatomia CSS</a>
+                <a href="./origem.html">Origem</a>
+                <a href="./classeTag.html">Criando Classe <strong>.tag</strong></a>
+                <a href="./seletores.html">Seletores</a>
+                <a href="./especificidade1.html">Especificidade CSS #01</a>
+                <a href="./especificidade2.html">Especificidade CSS #02</a>
+                <a href="./heranca.html">Herança</a>
+                <a href="./box.html">Box Model</a>
+                <a href="./margin.html">Margin Collapse</a>
+                <a href="./display.html">Display</a>
+                <a href="./alturaLargura.html">Altura & Largura</a>
+                <a href="./tamanhoBox.html">Box Sizing</a>
+                <a href="./overflow.html">Overflow</a>
+                <a href="./float.html">Float</a>
             </nav>
             <nav>
-                <a href="./cores.html">16 - Cores</a>
-                <a href="./unidades1.html">17 - Unidades #01</a>
-                <a href="./unidades2.html">18 - Unidades #02</a>
-                <a href="./texto.html">19 - Texto</a>
-                <a href="./position.html">20 - Position</a>
-                <a href="./mediaQuery.html">21 - Media Query</a>
-                <a href="./desafioMenu.html">22 - Desafio Menu</a>
-                <a href="./desafioCard.html">23 - Desafio Card</a>
-                <a href="./flexbox1.html">24 - Flex Box #1</a>
-                <a href="./flexbox2.html">25 - Flex Box #2</a>
-                <a href="./flexbox3.html">26 - Flex Box #3</a>
-                <a href="./flexboxMenu.html">27 - Desafio Menu (Flex Box)</a>
-                <a href="./cssgrid1.html">28 - CSS Grid #1</a>
-                <a href="./cssgrid2.html">29 - CSS Grid #2</a>
-                <a href="./cssgrid3.html">30 - CSS Grid #3</a>
+                <a href="./cores.html">Cores</a>
+                <a href="./unidades1.html">Unidades #01</a>
+                <a href="./unidades2.html">Unidades #02</a>
+                <a href="./texto.html">Texto</a>
+                <a href="./position.html">Position</a>
+                <a href="./mediaQuery.html">Media Query</a>
+                <a href="./desafioMenu.html">Desafio Menu</a>
+                <a href="./desafioCard.html">Desafio Card</a>
+                <a href="./flexbox1.html">Flex Box #1</a>
+                <a href="./flexbox2.html">Flex Box #2</a>
+                <a href="./flexbox3.html">Flex Box #3</a>
+                <a href="./flexboxMenu.html">Desafio Menu (Flex Box)</a>
+                <a href="./cssgrid1.html">CSS Grid #1</a>
+                <a href="./cssgrid2.html">CSS Grid #2</a>
+                <a href="./cssgrid3.html">CSS Grid #3</a>
             </nav>
         </div>
     </div>

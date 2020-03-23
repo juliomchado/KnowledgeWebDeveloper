@@ -5,7 +5,74 @@
     <meta charset="UTF-8">
     <title>Position</title>
     <style>
-        /* ... */
+        div {
+            font-style: 60px;
+            padding: 30px;
+            border: solid 5px #222;
+            color: #fff;
+        }
+
+        .static {
+            /* A posição padrão (static) não leva em consideração o top e left, ele fica na posição de acordo com o componente e a disposição dos outros componentes */
+            top: 100px;
+            left: 100px;
+            background-color: steelblue;
+
+        }
+
+        .fixed {
+            /* Ele fica fixado literalmente, pois mesmo se mexer a página ele continua no mesmo lugar */
+            position: fixed;
+            bottom: 30px;
+            right: 0px;
+            background-color: tomato;
+        }
+
+        .relative1 {
+            /* relative também leva em consideração ao elemento anterior */
+            position: relative;
+            left: 50px;
+            top: 5px;
+            background-color: seagreen;
+        }
+
+        .absolute1{
+            /* dependendo da posição que coloca, o absolute pode passar por cima de outros elementos */
+            /* ele ta considerando a pagina como um todo e não a tag body */
+            position: absolute;
+            left: 350px;
+            top: 120px;
+            background-color: violet;
+        }
+        .relative2 {
+            position: relative;
+            left: 250px;
+            top: 2000px;
+            width: 200px;
+            height: 200px;
+            background-color: slategray;
+        }
+
+        .absolute2{
+            /* Nesse caso ele vai ser absoluto de acordo com o elemento pai */
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: orange;
+        }
+
+        .sticky {
+            /* Safari não le o nome padrão, ai é bom colocar dessa forma pra ele conseguir interpretar */
+            /* sticky sobe até o final do top e para, ou seja, ele fica que nem o fixed */
+            position: -webkit-sticky;
+            position: sticky;
+            background-color: #777;
+            top: 0;
+
+
+        }
     </style>
 </head>
 

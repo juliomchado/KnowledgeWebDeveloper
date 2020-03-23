@@ -11,18 +11,32 @@
 
         .c1 {
             background-color: red;
+            float: right;
+
         }
 
         .c2 {
             background-color: green;
+            /* Usando clear ele não ignora mais o float do c1, assim não tomando essa área */
+            clear: right;
+            float: left;
         }
-        
+
         .c3 {
             background-color: blue;
+            /* Limpar a flutuação tanto de direita quanto a esquerda*/
+            clear: both;
         }
 
         .c4 {
             background-color: orange;
+            float: right;
+        }
+
+        div {
+            height: 150px;
+            width: 150px;
+
         }
     </style>
 </head>
