@@ -6,8 +6,58 @@
     <title>Flexbox #02</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        .flex-container div {
+            box-sizing: border-box;
+        }
+
+        .flex-container {
+            display: flex;
+            height: 300px;
+            width: 600px;
+        }
+
+        .flex-container div:nth-child(3) {
+            background-color: indianred;
+            /* Como mudar a ordem do item, quuanto maior a ordem mais pra tras ele vai */
+            order: 1;
+            /* Ele fica na posição padrão, pois ele tem o mesmo peso de todos */
+            order: 0;
+            /* Ele fica na frente de todos, pois tem o peso menor */
+            order: -1;
+            /* Alinha apenas o elemento escolido */
+            align-self: center;
+            align-self: flex-end;
+            align-self: flex-start;
+            /* Alinhamento padrão */
+            align-self: stretch; 
+
+        }
+
+
+        /* EXEMPLO FLEX-GROW  */
+        /* Um container de 600 pixels tem 4 elementos de 100 pixels = 400/600, se os 4 tiver peso 1, ele divide 200/4 e da 50 pra cada, então todos ficam com 150pixels*/
+        /* Se for por exemplo peso 2 pro 2 elemento, ele fica com peso 2, multiplica o valor dele por 2 e divide por 5 para separar igualmente a todos */
+        .flex-container div {
+            width: 100px;
+            flex-grow: 1;
+        }
+
+        .flex-container div:nth-child(1){
+            flex-grow: 2;
+        }
+
+        .flex-container{
+            width: 300px;
+            /* flex-shrink é igual flex-grow mas inves de aumentar o tamanho, ele diminui */
+            flex-shrink: 1;
+        }
+
+        .flex-container div:nth-child(1){
+            flex-shrink: 5;
+        }
+
     </style>
+
 </head>
 
 <body>

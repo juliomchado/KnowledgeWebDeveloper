@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Media Query</title>
@@ -12,11 +13,36 @@
             border: solid 5px;
             display: none;
         }
+
+        /* Faço @media(aqui coloco oque quero usar como critério para ele aplicar ou não) */
+        @media(max-width: 600px) {
+            .muito-pequeno {
+                display: block;
+            }
+        }
+
+        /* Usar apenas quando a tela tiver 1000px de largura e se tiver em modo retrato, se for paisagem ele vai renderizar independente da largura, porém ela terá que ser menor que 1000px */
+       /* Nesse caso é um 'Ou' então ele leva em consideração 1 dos 2 */
+        @media (max-width: 1000px),
+        (orientation: portrait) {
+            .pequeno-retrato {
+                display: block;
+            }
+        }
+
+        /* Nesse caso é um 'E' então os 2 tem que ser verdadeiro */
+        @media (min-width: 500px) and (max-width: 1000px) {
+            .intervalo {
+                display: block;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="muito-pequeno">Muito Pequeno</div>
     <div class="pequeno-retrato">Pequeno ou Retrato</div>
     <div class="intervalo">Intervalo</div>
 </body>
+
 </html>
