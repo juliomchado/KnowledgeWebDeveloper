@@ -1,0 +1,32 @@
+/ ROTA / RECURSO
+Avisar pro express ir no corpo da requisição e converter o json em objeto do js para ser intendivel pela app
+app.use(express.json())
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+Métodos HTTP:
+
+GET: Buscar/listar uma informação do back-end
+POST: Criar uma informação no back-end
+PUT: Alterar uma informação no back-end]
+DELETE: Deletar uma informação no back-end
+  
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+
+
+Tipos de parâmetros: 
+ 
+Query Params: Parâmetros nomeados enviados na rota após o "?" (Filtros, paginação) ex: 'app.post('/users?page=2&nome=Julio', (req, res) => {
+Route Params: Parâmetros utilizados para identificar recursos ex: app.post('/users/:id', (req, res) => {
+Request Body: Corpo da requisição, utilizado para criar ou alterar recursos
+  
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+Relacionais (é o mais utilizado, pois é oque permite ter maior controle sobre a estrutura e é uma linguagem para todos os bancos): 
+SQL = MySQL, SQLite, PostgreSQL, Oracle, Microsoft SQL Server
+
+Não Relacionais (é menos utilizado, pois permite menos controle e é menos estruturado, fazendo com que um usuario pode ter nome outros não, e cada banco tem a sua linguagem): 
+NoSQL = MongoDB, CouchDB, etc
+
+
+Como comunicar com banco de dados sql:
+
+Instalar o Driver: Escreve por exemplo pra buscar os usuários: SELECT * FROM users
+Query Builder: Escreve por exemplo pra buscar os usuários em javascript nesse caso: table('users').select('*').where() 
