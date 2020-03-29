@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <script>
+        const body = document.querySelector('body')
+
+        // Criei uma div com createElement
+        const div1 = document.createElement('div')
+        // Adicionei uma classe chamada 'distaque' dentro da div1 que criei
+        div1.classList.add('destaque')
+        // Coloquei o conteúdo (texto) 'Primeiro'
+        div1.innerHTML = 'Primeiro'
+
+        const div2 = document.createElement('div')
+        div2.setAttribute('wm-atributo', 'valor')
+        div2.innerHTML = 'Segundo'
+
+        const p = document.createElement('p')
+        p.innerHTML = 'Terceiro'
+        const div3 = document.createElement('div')
+        div3.appendChild(p)
+
+        // Inserir elemento na ultima posição
+        body.appendChild(div1)
+        body.appendChild(div2)
+        body.appendChild(div3)
+
+        const texto = document.createTextNode('Antes....')
+        // Coloco o elemnto que eu quero adicionar um novo elemento (div3 nesse caso) do insterBefore(elementofilhoqqradicionar, posicaoquequeroinserirantes)
+        div3.insertBefore(texto, div3.childNodes[0])
+
+        // true = ele clona tudo, até os filhos, false = ele não clona os filhos
+        const div4 = div3.cloneNode(true)
+        body.appendChild(div4)
+        body.removeChild(div3)
+
+
+
+    </script>
+</body>
+
+</html>

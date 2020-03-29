@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <!-- Vantagens de ter um evento onclick no próprio html: Fica muito explicito pra quem ta lendo o código que aqui vai ter um tratamento no evento onclick -->
+        <!-- Desvantagens: Tem que escrever isso de forma física todos os eventos e pode ficar bagunçado com o html com todos os eventos e funções, perdendo a flexibilidade e caso mude o evento ou o nome, terá que mudar em todas as tags-->
+        <!--onclick="navegarEm5s(event)" ---->
+        <a espera-um-pouco href="https://google.com.br">Google</a>
+    </div>
+    <script>
+        function navegarEm5s(e) {
+            e.preventDefault()
+            console.log('Saindo em 5...')
+            setTimeout(() => {
+                const link = e.target
+                window.location.href = link.href
+            }, 5000)
+        }
+
+        // const a = document.querySelector('a')
+        // a.onclick = navegarEm5s
+
+        const a = document.querySelector('[espera-um-pouco]')
+        a.onclick = navegarEm5s
+    </script>
+</body>

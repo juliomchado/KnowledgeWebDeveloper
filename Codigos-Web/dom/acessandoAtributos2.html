@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <!-- Atributos personalizado pode ser colocado com data- antes, pois são tratados diferentemente, porém não tem problema usar sem -->
+        <ul id="compras" destino='escritório' data-urgencia="5" data-blabla="opa">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        const lista = document.querySelector('div ul[destino="escritório"]')
+        console.log('Elemento "ul"..............')
+        console.log('childNodes', lista.childNodes)
+        // como destino é um atributo personalizado, o browser ignora, pois pra ele não existe ai nesse caso não pode acessar pela notação ponto, mas com getAttribute pode
+        console.log('destino', lista.destino)
+        console.log('getAttribute', lista.getAttribute('destino'))
+        console.log('hasAttribute', lista.hasAttribute('destino'))
+        // muda o valor do atributo destino para empresa
+        lista.setAttribute('destino', 'empresa')
+        // caso não tenha um atributo ele coloca mais um com essas informações
+        lista.setAttribute('status', 'aberto')
+        lista.removeAttribute('destino')
+
+        // Diferença de atributos personalizado com data- e sem, com data- você consegue pegar eles assim e sem não
+        console.log(lista.dataset)
+        console.log(lista.dataset.urgencia)
+        // Pode modifica-lo assim
+        lista.dataset.urgencia = 4
+        // Pode-se tratar assim
+        console.log(lista.getAttribute('data-urgencia'))
+
+
+        // cuidado
+        const label = document.querySelector('label')
+        console.log(label.for)
+        console.log(label.htmlFor)
+        console.log(label.getAttribute('for'))
+    </script>
+</body>
+
+</html>
