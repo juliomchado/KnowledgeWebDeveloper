@@ -22,5 +22,5 @@ String.prototype.toString = function () { // Posso sobreescrever comportamentos 
 }
 
 console.log('Eai Gente'.toString())
-console.log('Eai Gente'.reverse())
+// console.log('Eai Gente'.reverse())
 

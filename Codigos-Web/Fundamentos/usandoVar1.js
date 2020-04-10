@@ -2,11 +2,12 @@
     {
         {
             {
-                var sera = 'Sera???'
+                var sera = 'Sera?????'
             }
         }
     }
 }
+
 
 console.log(sera) //'var sera' esta visível fora do escopo de onde foi iniciada]
 
