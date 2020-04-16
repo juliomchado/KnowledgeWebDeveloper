@@ -25,6 +25,40 @@
     </nav>
     <div class="pagina"></div>
     <script>
-        // ...
+        function navegarViaAjax(url, seletor, push = true) {
+            if (!url || !seletor) return
+
+            const elemento = document.querySelector(seletor)
+
+            fetch(url)
+                .then(resp => resp.text())
+                .then(html => {
+                    elemento.innerHTML = html
+                    // Para conseguir pegar o historico
+                    // Parâmetros:
+                    // Estado, titulo, url para colocar no historico
+                    if (push) {
+                        history.pushState({ seletor }, null, url)
+                    }
+                })
+        }
+
+        document.querySelectorAll('[wm-link]').forEach(link => {
+            const url = link.attributes['wm-link'].value
+            const seletorDestino = link.attributes['wm-destino'].value
+
+            link.onclick = e => {
+                e.preventDefault()
+                navegarViaAjax(url, seletorDestino)
+            }
+
+
+        })
+        // Evento padrão, aqui to tirando o primeiro elemento da pilha(historico nesse caso)
+        window.onpopstate = e => {
+            if(e.state){
+                navegarViaAjax(window.location.href, e.state.seletor, false)
+            }
+        }
     </script>
 </body>
