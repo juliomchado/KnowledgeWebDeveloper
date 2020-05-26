@@ -1,6 +1,6 @@
 <template>
   <div class="calculator">
-    <Display value="1000" @onClick="addDigit" />
+    <Display :value="displaValue" @onClick="addDigit" />
     <Button label="AC" triple @onClick="clearMemory" />
     <Button label="/" operation @onClick="setOperation" />
     <Button label="7" @onClick="addDigit" />
@@ -26,16 +26,63 @@ import Display from "../components/Display";
 import Button from "../components/Button";
 
 export default {
+  data: function() {
+    return {
+      displaValue: "0",
+      clearDisplay: false,
+      operation: null,
+      values: [0, 0],
+      current: 0
+    };
+  },
   components: { Button, Display },
   methods: {
     clearMemory() {
-
+      Object.assign(this.$data, this.$options.data());
     },
     setOperation(operation) {
+      if (this.current === 0) {
+        this.operation = operation;
+        this.current = 1;
+        this.clearDisplay = true;
+      } else {
+        const equals = operation === "=";
+        const curreOperation = this.operation;
 
+        try {
+          this.values[0] = eval(
+            `${this.values[0]} ${curreOperation} ${this.values[1]}`
+          );
+        } catch (e) {
+          this.$emit("onError", e);
+        }
+
+        this.values[1] = 0;
+
+        this.displaValue = this.values[0];
+        this.operation = equals ? null : operation;
+
+        this.current = equals ? 0 : 1;
+        this.clearDisplay = !equals
+      }
     },
     addDigit(n) {
+      if (n === "." && this.displaValue.includes(".")) {
+        return;
+      }
 
+      const clearDisplay = this.displaValue === "0" || this.clearDisplay;
+      const currentValue = clearDisplay ? "" : this.displaValue;
+      const displaValue = currentValue + n;
+
+      this.displaValue = displaValue;
+      this.clearDisplay = false;
+
+      if (n !== ".") {
+        const i = this.current;
+        const newValue = parseFloat(displaValue);
+        this.values[i] = newValue;
+      }
     }
   }
 };
