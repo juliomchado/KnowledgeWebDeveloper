@@ -1,3 +1,7 @@
+-- where = filtra os dados
+-- order by = ordena de forma crescente (menor pro maior) e colocando o desc é decrescente
+
+
 select
     *
 from
@@ -11,7 +15,8 @@ where
     regiao = 'Sul'
 select
     nome,
-    regiao
+    regiao,
+    populacao
 from
     estados
 where
