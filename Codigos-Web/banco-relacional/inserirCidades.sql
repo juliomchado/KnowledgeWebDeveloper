@@ -30,6 +30,3 @@ INSERT INTO
 VALUES ('Juazeiro do Norte', 248.2, (select id from `estados` where sigla = 'CE'))
 
 
-select * from cidades
-
-delete from cidades where id = 5
