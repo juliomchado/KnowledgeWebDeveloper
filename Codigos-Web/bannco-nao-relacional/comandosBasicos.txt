@@ -1,0 +1,25 @@
+---- Comandos mongodb ----
+
+--Visualizar algo--
+
+- show dbs                                   = Mostra todos os bancos criados em sua máquina
+
+- use wm                                     = Usar banco wm (Ele não precisa estar criado)
+
+- show collections                           = Mostar coleções criadas
+
+
+--Criar/Inserir Algo-- 
+
+- db.createCollection('nomecollection')      = Criar coleção 'nomecollection'
+
+
+
+--Remover/dropar algo--
+
+- db.nomecollection.drop()                   = Deletar a collection 'nomecollection'
+
+
+- OBS: 
+    -> Apagar todas as collections fazem com que o banco deixe de existir
+    -> Não precisa criar o banco para usa-lo, quando inserido dados ou collections ele automaticamente é criado 
