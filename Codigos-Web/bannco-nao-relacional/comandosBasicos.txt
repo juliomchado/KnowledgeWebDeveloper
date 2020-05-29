@@ -1,6 +1,6 @@
 ---- Comandos mongodb ----
 
---Visualizar algo--
+----------------------Visualizar algo----------------------
 
 - show dbs                                   = Mostra todos os bancos criados em sua máquina
 
@@ -9,17 +9,35 @@
 - show collections                           = Mostar coleções criadas
 
 
---Criar/Inserir Algo-- 
+----------------------Criar/Inserir Algo----------------------
+
 
 - db.createCollection('nomecollection')      = Criar coleção 'nomecollection'
 
+- db.nomecollection.insert({nome: "Acre", sigla: "AC", regiao: "Norte"})                 = Inserir dados na collection 'nomecollection' (Ela não precisa ter sido criada), o que ta dentro do () pode ser um json ou pode ser uma notação parecida com objeto
+
+- db.nomecollection.save({nome: "Alagoas", sigla: "AL", regiao: "Nordeste", populacao: 3322000})             = Serve para inserir ou para dar um update nos dados
 
 
---Remover/dropar algo--
+----------------------Remover/dropar algo----------------------
 
 - db.nomecollection.drop()                   = Deletar a collection 'nomecollection'
 
 
-- OBS: 
+----------------------OBS----------------------
+ 
     -> Apagar todas as collections fazem com que o banco deixe de existir
     -> Não precisa criar o banco para usa-lo, quando inserido dados ou collections ele automaticamente é criado 
+    -> Pode se dar insert em várias linhas e colocar array dentro do valor ex: 
+
+        db.estados.insert({
+            nome: "Rio de Janeiro",
+            sigla: "RJ",
+            regiao: "Sudeste",
+            cidades: [{
+                nome: "Niterói",
+                area: 133.9,
+                populacao: 487562
+            }]
+        })
+

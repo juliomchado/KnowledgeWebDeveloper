@@ -1,0 +1,35 @@
+---------------------- Fazer consultas ----------------------
+
+                      CONSULTAS BÁSICAS
+
+OBS: 
+    MÉTODO FIND =  Primeiro parâmetro do método find é o filtro, segundo é quais os atributos quero trazer
+
+
+- db.nomecollection.find()                   = Traz todos os registros cadastrados
+
+- db.nomecollection.find().pretty()          = Pretty formata os dados em forma de json
+
+- db.nomecollection.findOne()                = Traz o primeiro registros
+
+- db.nomecollection.findOne({sigla: "RJ"})   = Traz o primeiro registro encontrado onde a sigla = "RJ"
+
+- db.nomecollection.find({$or: [{sigla: "RJ", {sigla: "AC}}]})        = Traz ou o registro que tem sigla = "RJ" OU o que tem sigla = "AC"
+ 
+- db.nomecollection.find({$and: [{sigla: "RJ", {sigla: "AC}}]})       = Traz ou o registro que tem sigla = "RJ" E o que tem sigla = "AC"
+
+- db.nomecollection.find({populacao: {$exists: true}})                = Traz todos os estados que tem o atributo populacao
+
+- db.nomecollection.find().skip(1)                                    = Ele pula o primeiro nesse caso (valor entre parênteses é qual você quer pular, ou seja, nesse caso ele pega apartir do segundo)
+
+- db.nomecollection.find().skip(1).limit(2)                           = Pula o primeiro e limita apenas a 2 resultados
+
+- db.nomecollection.count()                                           = Retorna a quantidade de registros tem em uma coleção
+
+- db.nomecollection.find({sigla: "SP"}, {nome: 1, sigla: 1})          = Filtra sigla = SP e traz os atributos nome e sigla dos registros filtrados (Id vem por padrão)
+
+- db.nomecollection.find({sigla: "SP"}, {nome: 1, sigla: 1, _id: 0}) = Filtra sigla = SP e traz os atributos nome e sigla dos registros filtrados (Nesse caso o id não vem)
+
+- db.nomecollection.find({sigla: "SP"}, {"cidades.nome": 1, _id: 0}) = Traz apenas cidade.nome (Valor dentro do array cidades)
+ 
+
