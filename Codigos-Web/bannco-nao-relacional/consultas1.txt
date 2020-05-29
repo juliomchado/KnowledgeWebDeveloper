@@ -1,6 +1,6 @@
 ---------------------- Fazer consultas ----------------------
 
-                      CONSULTAS BÁSICAS
+                                     CONSULTAS BÁSICAS
 
 OBS: 
     MÉTODO FIND =  Primeiro parâmetro do método find é o filtro, segundo é quais os atributos quero trazer
@@ -31,5 +31,3 @@ OBS:
 - db.nomecollection.find({sigla: "SP"}, {nome: 1, sigla: 1, _id: 0}) = Filtra sigla = SP e traz os atributos nome e sigla dos registros filtrados (Nesse caso o id não vem)
 
 - db.nomecollection.find({sigla: "SP"}, {"cidades.nome": 1, _id: 0}) = Traz apenas cidade.nome (Valor dentro do array cidades)
- 
-

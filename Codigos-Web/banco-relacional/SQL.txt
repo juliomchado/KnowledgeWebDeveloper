@@ -1,0 +1,117 @@
+- Modelo E/R (Entidade/Relacionamento)
+- Dados são armazenados de forma de tabela
+- A linha da tabela também é chamado de tupla -> São as entidades (dados)
+- Cada coluna tem um tipo de dado diferente, contém um Schema (serve para validar os dados) (Varchar, blob, clob,), (number, etc)
+- Relacionamento são feitos com chave estrangeira
+
+- Chave primária = Tem que ser única dentro de uma tabela, não pode ser vazia e não muda (Muito difícil de mudar)
+	ex: Tabela cliente tem 4 colunas, a 1 coluna é chave primária, onde tem 
+		um id único para cada linha (id 1, id 2, id 3, etc), podem ser geradas como surrogate key (Sintética, artifical, onde o usuário ve) ex: 1, 2,3 
+			Pode ser gerada por uma Natural key, pode ser por um cpf, um rg + emissor, etc
+				São geradas para relacionamentos dentro do banco e também é muito rápido fazer uma pesquisa por ela
+					Pode ter uma chave primária que tem mais de uma coluna ex: Uma tabela com 2 primeiras colunas, posso ter uma repetição contando que o par não se repita
+
+- Relação 1 pra N (1 mãe tem vários filhos) -> 
+ 
+COD = CHAVE PRIMÁRIA                     MAE_COD = Chave estrangeira (onde se relaciona com o outra tabela) FOREIGN KEY
+
+  COD  NOME               COD   NOME  MAE_COD 
+|  1  |  Ana |		|  1  | JOÃO |   1   |
+|  2  |  Bia |    --->  |  2  | GUI  |   2   |
+|     |      |          |  3  |JULIA |   1   |
+
+Nesse caso João é filho de ANA, Gui é filho de Bia e Julia é filha de ANA
+
+Obs: Eu só consigo apagar ANA se eu apagar João e a Julia, pois irá acontecer uma inconsistência nos dados e isso o banco não vai permitir
+
+Posso passar o mae_cod como nulo, assim eu consigo apagar as 'maes' do banco sem apagar os filhos
+
+
+- Relação 1 pra 1  (Exemplo de casamento)
+
+    HOMEM                         MULHER
+  COD  NOME               COD   NOME  HOMEM_ID
+|  1  |  --- |		|  1  |  --- |   2   |
+|  2  |  --- |    --->  |  2  |  --- |   1   |
+|  3  |      |          |  3  |  --- |   3   | < -- Adiciona a chave unique (Ai não tem como repetir os dados da foreign key
+
+
+-Nesse caso o homem 1 ta casado com a mulher 2, homem 2 ta casado com a mulher 1 e o homem 3 ta casado com a mulher 3
+
+
+
+- Relação N pra N (Um sobrinho pode ter vários tios e um tio pode ter vários sobrinhos)
+
+Obs: É criado uma tabela intermediária para fazer a relação (As 2 colunas são de chaves primárias)
+
+Assim fazendo uma relação 1 pra N (tabela tio -> tio_sob) para a tabela intermediária, outra 1 pra N (tabela sobrinho -> tio_sob) e assim simula uma relação N pra N
+ Não tendo assim uma relação direta
+
+
+
+    TIO			   SOBRINHO	
+  COD  NOME               COD   NOME  
+|  1  |  --- |	N pra N	|  1  | --- |
+|  2  |  --- |          |  2  | --- |
+|     |      |          |  3  | --- | 
+
+     |		TIO_SOB		|
+     |	    TIO_ID  SOB_ID	|  
+     |__    |  1  |   1  |    __|	
+	    |  1  |   2  |   
+   1 pra N  |  1  |   3  |   1 pra N
+	    |  2  |   1  |		
+	    |  2  |   2  |   
+	    |  2  |   3  | 
+	    |  3  |   1  |		
+	    |  3  |   2  |   
+	    |  3  |   3  |        
+
+- Nesse caso o tio 1 é tio dos 3 sobrinhos, o tio 2 também e o 3 também
+
+
+
+NÃO EXISTE RELAÇÃO BIDIMENSIONAL NO BANCO DE DADOS
+	Ou seja, nesse caso você não pode colocar coluna da cidade dentro do prefeito e prefeito dentro da cidade não funciona
+
+ex: 
+
+    CIDADE                    PREFEITO
+  ID			  ID	    CIDADE_ID
+|  1  |  --- |		|  1  | --- |  2  |
+|  2  |  --- |          |  2  | --- |  3  |
+|  3  |      |          |  3  | --- |  1  |
+
+
+Tem que verificar se fica mais fácil da tabela prefeito achar a cidade ou da cidade achar o prefeito??
+	R: Depende do seu sistema, se seu sistema trabalha com o prefeito pra achar a cidade, você colocar a cidade no prefeito,
+		se seu sistema acessa a cidade, você coloca o prefeito na cidade
+
+Relação de 1 pra N a coluna do 1 sempre vai pra N,
+Quando a relação é 1 pra 1 você pode escolher, depende do seu sistema, porém nunca pode ir os 2 ao msm tempo
+
+
+
+SQL - são divididas em quatro partes (DML, DDL, DCL, TCL), 
+	DML = Data manipulation language (Select, Update, Delete, Insert)
+	DDL = Data definition language (Create, Alter, Drop) onde define o schema e cria as estruturas do banco
+	DCL = Data control language (Grant, Deny, Revoke) onde define se o usuário tem permissão de criar novo banco/dar update, um deny, que não pode dar delete no banco , n pode criar tabela, etc 
+	TCL = Transation control language (Begin Trans, Commit Trans, RollBack) linguagem onde tem o controle de transações
+
+
+TIPOS DE JOINS - 
+		  INNER = Apenas os dados relacionados as 2 tabelas	
+		  OUTER = Dados que está fora da interceção das 2 tabelas
+		  LEFT JOIN = Tudo oque é relacionado nas 2 + o "lado esquerdo" da relação (LEFT OUTER JOIN)
+		  RIGHT JOIN = Tudo oque é relacionado nas 2 + o "lado direito" da relação (RIGHT OU TER JOIN)
+		  FULL JOIN(Não suportado pelo MySQL) = Pega tanto o left quando o right + a relação (Toda relação)
+
+
+Alterar valor de coluna onde colocou um número errado por enquanto: ex: Cnpj colocou como INT mas queria como VARCHAR
+
+ALTER TABLE nometabela MODIFY cnpj VARCHAR(14);
+
+
+Ver valores da tabela = 
+desc nometabela
+

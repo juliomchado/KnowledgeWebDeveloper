@@ -1,0 +1,28 @@
+                                 
+                                   CONSULTAS COMPLEXAS
+
+O aggregate você coloca os estágios de um pipeline para filtrar seus dados e retorna-lo do jeito que deseja
+_
+
+-> $project = Estágio de selecionar os atributos que serão passados para o próximo passo ex: {"cidades.nome": 1, _id: 0})
+-> $match = Filtra o resultado ex: {sigla: "SP"}   
+-> $group = Estágio de agrupamento
+-> $unwind = Gerar documento separados com o valor passado, ex: $unwind: "$cidades", se tiver 3 cidades ele irá criar 3 documentos com o valor das cidades
+
+
+Obs: Valor do lado esquerdo do chave valor não se coloca $, mas se for do lado direito coloca, ex: populacao: $cidades.populacao, pois assim o Mongo entende que tem que juntar em chave:valor
+
+
+- db.estados.aggregate([{$project: {nome: 1, "cidades.nome":1, _id: 0}} ])      = Traz os atributos nome e cidades: [{nome}]          
+
+- db.estados.aggregate([{$project: {populacao: {$sum: "$cidades.populacao"}, sigla: 1, _id: 0}}]) = Traz populacao e soma os valores de todos os resultados e a sigla
+
+- db.estados.aggregate([{$project: {populacao: {$sum: "$cidades.populacao"}, sigla: 1, _id: 0}}, {$group: {_id: null, populacaoTotal: {$sum: "$populacao"}}}]) = Traz populacao e soma os valores de todos os resultados e a sigla e agrupa em populacao Total e o id NULO
+
+- db.estados.aggregate([{$project: {populacao: {$sum: "$cidades.populacao"}, sigla: 1, _id: 0}}, {$group: {_id: null, populacaoTotal: {$sum: "$populacao"}}}, {$project: {_id: 0, populacaoTotal: 1}}]) = Mesma coisa porém sem o id
+
+- db.estados.aggregate([
+    {$match: {"cidades.nome": "Sorocaba"}},
+    {$unwind: "$cidades"},
+    {$match: {"cidades.nome":"Sorocaba"}},
+    {$project: {_id: "$cidades._id"}}]).pretty() = Traz apenas o id da cidade de Sorocaba

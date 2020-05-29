@@ -1,0 +1,53 @@
+----Inserir Empresas----
+
+> db.empresas.insert({
+    nome: "Bradesco",
+    estadoId: ObjectId("5ed17e812488d3605d303585")
+    })
+
+
+ db.empresas.insert({
+    nome: "Vale",
+    cidadeId: ObjectId("5ed17e812488d3605d303584")
+    })
+
+
+
+
+----Consulta com relacionamento entre documentos (Lookup) Relacionando Empresa com estado----
+
+$lookup ->  
+    from = empresa que quer relacionar, 
+    localField = id onde tem o relacionamento nesse documento
+    foreignField = id do documento parecido em outro documento (o que foi colocado em from),
+    as = atributo criado apartir desse lookup    
+
+
+db.empresas.aggregate([
+    {$match: {nome: "Bradesco"}},
+    {$lookup: {
+        from: "estados",
+        localField: "estadoId",
+        foreignField: "_id",
+        as: "estado"
+    }},
+    {$unwind: "$estado"}
+]).pretty()
+
+
+-----Relação empresa com cidade-------
+
+
+db.empresas.aggregate([
+    {$match: {nome: "Vale"}},
+    {$lookup: {
+        from: "estados",
+        localField: "cidadeId",
+        foreignField: "cidades._id",
+        as: "estado"
+    }},
+    {$unwind: "$estado"},
+    {$unwind: "$estado.cidades"},
+    {$addFields: {mesmaCidade: {$cmp: ["$estado.cidades._id", "$cidadeId"]}}},
+    {$match: {mesmaCidade: 0}}
+]).pretty()

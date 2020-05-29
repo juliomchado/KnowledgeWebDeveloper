@@ -1,0 +1,45 @@
+NoSQL -> Not Only SQL
+
+
+Existe 4 tipos de bancos não relacionais 
+	- Baseados em Chave Valor (Redis)
+	- Baseados em Documentos (MongoDB) (JSON)
+	- Baseados em Grafos (Neo4J) (Vários nós com seus vértices e arestas)
+	- Baseados em Colunas (BigTable, Cassandra) (Familia de colunas)
+
+
+Vertical vs Horizontal
+
+Vertical = Maquina com quantidade de memória, qnt de processador, tecnologia de 
+		armazenamento e fazer atualizações para aumentar a performace 
+			da maquina (colocar novo processador, ssd etc), porém tem um limite e isso acaba rápido
+			 	os Bancos relacionais são mais facilmente escalados de forma vertical.
+
+Horizontal = É muito mais fácil em banco não relacional, você consegue separar os dados em
+		 múltiplas instâncias(maquinas diferentes) e consegue replicar os 
+			dados de forma horizontal (em multiplas máquinas).
+
+
+MongoDB -> 
+
+-Banco baseado em documento (JSON nesse caso)
+
+-> O mongo tem o DB (Database) 
+-> dentro do banco de dados tem suas collections (Equivalente as tabelas em banco relacional) 
+-> dentro das collections tem os documentos(Equivalente as tuplas, registros ou linha de um banco relacional)
+
+- O Mongo db é um banco SEM SCHEMA
+- Não usamos sql, usamos a API dele q é bem simples, porém se tiver muitos dados em documentos diferentes 
+	para consegui aquilo que você quer não vai ser tão simples assim. 
+
+
+Consultas com agregação resumido: 
+ 	-> É feita por pipeline, ou seja, os dados vão passando e serão filtrados até retornar da forma que você quer
+	
+
+
+
+
+
+
+

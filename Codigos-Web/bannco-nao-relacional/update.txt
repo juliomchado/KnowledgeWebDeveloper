@@ -1,0 +1,17 @@
+------------Modificar dados------------
+
+update -> 1 parâmetro é o filtro (Onde eu quero mudar) e depois o objeto que eu quero passar setando os valores
+
+- db.estados.update({sigla: "SP"}, {$set: {populacao: 4534000}})
+
+- db.estados.update({sigla: "AL"}, {$set: {cidades: [{nome: "Sergipe"}]}})  = Posso passar um array também (Caso não tenha o valor que está colocando ele irá adicionar, caso tenha ele irá modificar o existente)
+
+- db.estados.update({sigla: "SP"}, {$push: {cidades: {nome: "Santos", populacao: 433966}}}) = Nesse caso ele irá adicionar ao valor de cidades + nome e populacao
+
+Mudar tudo: 
+
+db.estados.update({}) = Sem filtro, então ele pega todos
+
+=================
+
+- db.estados.find({populacao: {$exists: true }}, {_id: 0, nome: 1})
